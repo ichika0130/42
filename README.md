@@ -1,1 +1,1 @@
-My stupif codes for libft
+My stupid codes for 42
