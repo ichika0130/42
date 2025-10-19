@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
 size_t  getstart(char const *s1, char const *set)
 {
@@ -80,9 +79,9 @@ char    *ft_strtrim(char const *s1, char const *set)
     return (str);
 }
 
-#include <stdio.h>
-int main()
-{
-    char *str = ft_strtrim("abcaaaa", "a");
-    printf ("%s", str);
-}
+// #include <stdio.h>
+// int main()
+// {
+//     char *str = ft_strtrim("abcaaaa", "a");
+//     printf ("%s", str);
+// }

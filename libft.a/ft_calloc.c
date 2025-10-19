@@ -22,31 +22,31 @@ void *ft_calloc(size_t nmemb, size_t size)
     return (arr);
 }
 
-#include <stdio.h>
-int main()
-{
-    int n;
-    int i;
+// #include <stdio.h>
+// int main()
+// {
+//     int n;
+//     int i;
 
-    i = 0;
-    n = 5;
-    int *arr = ft_calloc(3, sizeof(int));
-    if (arr == NULL)
-    {
-        printf ("Failed to malloc\n");
-        return (1);
-    }
-    while (i < n)
-    {
-        arr[i] = i + 1;
-        i++;
-    }
-    i = 0;
-    while (i < n)
-    {
-        printf ("%d", arr[i]);
-        i++;
-    }
-    free (arr);
-    return (0);
-}
+//     i = 0;
+//     n = 5;
+//     int *arr = ft_calloc(3, sizeof(int));
+//     if (arr == NULL)
+//     {
+//         printf ("Failed to malloc\n");
+//         return (1);
+//     }
+//     while (i < n)
+//     {
+//         arr[i] = i + 1;
+//         i++;
+//     }
+//     i = 0;
+//     while (i < n)
+//     {
+//         printf ("%d", arr[i]);
+//         i++;
+//     }
+//     free (arr);
+//     return (0);
+// }

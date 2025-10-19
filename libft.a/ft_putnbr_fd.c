@@ -25,7 +25,7 @@ void ft_putnbr_fd(int n, int fd)
     }
 }
 
-int main()
-{
-    ft_putnbr_fd (-2147483648, 1);
-}
+// int main()
+// {
+//     ft_putnbr_fd (-2147483648, 1);
+// }

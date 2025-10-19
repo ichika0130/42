@@ -80,10 +80,10 @@ char *ft_itoa(int n)
     return (str);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-    char    *str = ft_itoa(-2147483648);
-    printf ("%s", str);
-}
+// int main()
+// {
+//     char    *str = ft_itoa(-2147483648);
+//     printf ("%s", str);
+// }

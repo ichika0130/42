@@ -26,16 +26,16 @@ void    ft_striteri(char *s, void (*f)(unsigned int, char*))
     }
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-void    test(unsigned int i, char *c)
-{
-    *c = *c + 1;
-}
+// void    test(unsigned int i, char *c)
+// {
+//     *c = *c + 1;
+// }
 
-int main()
-{
-    char    str[] = "abcd, Hello, Wolrd";
-    ft_striteri(str, test);
-    printf ("%s", str);
-}
+// int main()
+// {
+//     char    str[] = "abcd, Hello, Wolrd";
+//     ft_striteri(str, test);
+//     printf ("%s", str);
+// }

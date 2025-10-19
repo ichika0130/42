@@ -10,9 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 char    **ft_split(char const *s, char c)
 {
-    
+    char **result;
+    int i;
+    int j;
+    int k;
+
+    if (!s || !(result = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1))))
+        return (0);
+    i = 0;
+    j = 0;
+    while (s[i])
+    {
+        if (s[i] != c)
+        {
+            k = i;
+            while (s[k] && s[k] != c)
+                k++;
+            result[j++] = ft_substr(s, i, k - i);
+            i = k;
+        }
+        else
+            i++;
+    }
+    result[j] = 0;
+    return (result);
 }

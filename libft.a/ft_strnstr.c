@@ -14,11 +14,11 @@
 
 char    *ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-    int i;
-    int j;
-    int len;
+    size_t i;
+    size_t j;
+    size_t len;
 
-    len = strlen((char *) s2);
+    len = ft_strlen((char *) s2);
     i = 0;
     j = 0;
     while (n != 0 &&s1[i] != '\0')
@@ -31,7 +31,8 @@ char    *ft_strnstr(const char *s1, const char *s2, size_t n)
                 j++;
                 len--;
             }
-            return (s1 + i);
+            s1 = s1 + i;
+            return ((char *)s1);
         }
         else
         {
