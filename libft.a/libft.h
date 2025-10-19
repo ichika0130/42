@@ -5,7 +5,7 @@
 
 int	ft_atoi(char *str);
 void	ft_bzero(void *s, size_t n);
-void *calloc(size_t nmemb, size_t size);
+void *ft_calloc(size_t nmemb, size_t size);
 int	ft_isalnum(char a);
 int	ft_isalpha(char a);
 int ft_isascii(int a);
@@ -38,4 +38,5 @@ char    *ft_substr(const char *s, unsigned int start, size_t len);
 int	ft_tolower(int c);
 int ft_toupper(int c);
 void *ft_calloc(size_t nmemb, size_t size);
+
 #endif
