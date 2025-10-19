@@ -15,11 +15,13 @@
 char *ft_strrchr(const char *s, int c)
 {
     int i;
+    unsigned char   j;
     
+    j = (unsigned char)c;
     i = ft_strlen((char *)s);
-    while (i != 0)
+    while (i >= 0)
     {
-        if (s[i] == c)
+        if (s[i] == j)
             return ((char *)s + i);
         i--;
     }
@@ -30,6 +32,9 @@ char *ft_strrchr(const char *s, int c)
 // #include <string.h>
 // int main()
 // {
-//     char a = *ft_strrchr("Helloeea", 'e');
-//     printf ("%c", a);
+//     char s[] = "tripouille";
+// 	char s2[] = "ltripouiel";
+// 	char s3[] = "";
+//     char *a = ft_strrchr(s3, 0);
+//     printf ("%s", a);
 // }

@@ -38,5 +38,4 @@ char    *ft_substr(const char *s, unsigned int start, size_t len);
 int	ft_tolower(int c);
 int ft_toupper(int c);
 void *ft_calloc(size_t nmemb, size_t size);
-
 #endif

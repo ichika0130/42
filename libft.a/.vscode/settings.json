@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "ft_isalnum": "cpp",
+        "ft_itoa.c": "cpp",
+        "ft_striteri.c": "cpp",
+        "unistd.h": "c",
+        "libft.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
