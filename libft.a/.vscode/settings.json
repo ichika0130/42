@@ -4,7 +4,8 @@
         "ft_itoa.c": "cpp",
         "ft_striteri.c": "cpp",
         "unistd.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "sstream": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

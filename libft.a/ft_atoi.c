@@ -12,13 +12,15 @@
 
 #include "libft.h"
 
-int	ft_sign_check(char *str)
+int	ft_sign_check(const char *str)
 {
 	int	j;
 	int	m_sign;
 
 	j = 0;
 	m_sign = 1;
+	if (str[1] <= '0' || str[1] >= '9')
+	    return (0);
 	while (str[j] < '0' || str[j] > '9')
 	{
 		if (str[j] == '-')
@@ -36,14 +38,18 @@ int	ft_sign_check(char *str)
 	return (m_sign);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		j;
 	int		nbr;
 	int		m_sign;
-
+    int     len;
+    
+    len = ft_strlen(str);
 	nbr = 0;
 	j = 0;
+	if (len >= 2 && (str[1] <= '0' || str[1] >= '9'))
+	    return (0);
 	m_sign = ft_sign_check(str);
 	while (str[j] < '0' || str[j] > '9')
 		j++;
