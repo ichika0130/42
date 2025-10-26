@@ -14,6 +14,9 @@
 
 void *ft_calloc(size_t nmemb, size_t size)
 {
+    if (size != 0 && nmemb > ((size_t)-1) / size)
+    //check if the required memory is too big or not
+        return (NULL);
     void    *arr = malloc (nmemb * size);
     if (arr == NULL)
         return (NULL);

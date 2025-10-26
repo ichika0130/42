@@ -12,36 +12,26 @@
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-    size_t i;
-    size_t j;
-    size_t len;
+	size_t	i;
+	size_t	j;
 
-    len = ft_strlen((char *) s2);
     i = 0;
-    j = 0;
-    while (n != 0 &&s1[i] != '\0')
-    {
-        if (s1[i] == s2[j])
-        {
-            while (len != 0 && s1[i] == s2[j])
-            {
-                i++;
-                j++;
-                len--;
-            }
-            s1 = s1 + i;
-            return ((char *)s1);
-        }
-        else
-        {
-            j = 0;
-            i++;
-            n--;
-        }
-    }
-    return (NULL);
+	if (*s2 == '\0')
+		return ((char *)s1); // if S2 is empty then return s1
+	while (s1[i] && i < n)
+	{
+        j = 0; // initialize j and set j as 0 (for s2)
+		while (s1[i + j] == s2[j] && (i + j) < n)
+		{
+			j++;
+			if (s2[j] == '\0')
+				return ((char *)&s1[i]); // 完全match then return
+		}
+		i++;
+	}
+	return (NULL);
 }
 
 // #include <stdio.h>
