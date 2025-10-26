@@ -95,6 +95,6 @@ char	**ft_split(char const *s, char c)
 	if (str == NULL)
 		return (NULL);
 	str = get_words(s, c, 0, str);
-	str[count] = sNULL;
+	str[count] = NULL;
 	return (str);
 }

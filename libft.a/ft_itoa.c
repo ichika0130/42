@@ -15,7 +15,6 @@
 int	get_len(long n)
 {
 	int		len;
-	long	i;
 
 	len = 1;
 	if (n < 0)
@@ -54,7 +53,7 @@ char	*convert(int i, int len, char *str, long nbr)
 	while (i < len)
 	{
 		str[i] = nbr / pow + '0';
-		nbr = nbr - ((nbr / pow) * k);
+		nbr = nbr - ((nbr / pow) * pow);
 		i++;
 		pow = pow / 10;
 	}
@@ -65,7 +64,6 @@ char	*ft_itoa(int n)
 {
 	int		len;
 	int		i;
-	long	pow;
 	long	nbr;
 	char	*str;
 
@@ -81,7 +79,7 @@ char	*ft_itoa(int n)
 		str[i] = '-';
 		i++;
 	}
-	*str = convert(i, len, str, nbr);
+	str = convert(i, len, str, nbr);
 	str[i] = '\0';
 	return (str);
 }
