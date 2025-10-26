@@ -12,23 +12,26 @@
 
 #include "libft.h"
 
-int ft_isascii(int a)
+int	ft_isascii(int a)
 {
-    if (a >= 0 && a <= 127)
-        return (1);
-    else
-        return (0);
+	if (a >= 0 && a <= 127)
+		return (1);
+	else
+		return (0);
 }
 
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int main()
+int	main(void)
 {
-    int b = isascii('p');
-    int c = ft_isascii('p');
-    printf ("%d\n", b);
-    printf ("%d", c);
+	int	b;
+	int	c;
+
+	b = isascii('p');
+	c = ft_isascii('p');
+	printf ("%d\n", b);
+	printf ("%d", c);
 }
 */

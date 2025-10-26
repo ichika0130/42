@@ -14,20 +14,22 @@
 
 int	ft_isalnum(char a)
 {
-	if ((a >= 97 && a <= 122)
-		|| (a >= 65 && a <= 90)
-		|| (a >= 48 && a <= 57))
+	if ((a >= 97 && a <= 122) || (a >= 65 && a <= 90) || (a >= 48 && a <= 57))
 		return (8);
 	else
 		return (0);
 }
 /*
-#include <stdio.h>
 #include <ctype.h>
-int main()
+#include <stdio.h>
+
+int	main(void)
 {
-    char a = '+';
-    int b = isalnum(a);
-    printf ("%d", b);
+	char	a;
+	int		b;
+
+	a = '+';
+	b = isalnum(a);
+	printf ("%d", b);
 }
 */

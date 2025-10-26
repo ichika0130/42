@@ -12,72 +12,78 @@
 
 #include "libft.h"
 
-int get_len (int n)
+int	get_len(long n)
 {
-    int len;
-    long    i;
+	int		len;
+	long	i;
 
-    i = n;
-    len = 1;
-    if (i < 0)
-    {
-        i = 0 - i;
-        len++;
-    }
-    while (i > 9)
-    {
-        i = i / 10;
-        len++;
-    }
-    return (len);
+	len = 1;
+	if (n < 0)
+	{
+		n = 0 - n;
+		len++;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
-long    get_power(int   n, int  nbr)
+long	get_power(int n, int nbr)
 {
-    long    i;
+	long	i;
 
-    i = 1;
-    if (nbr < 0)
-        n--;
-    while (n > 1)
-    {
-        i = i * 10;
-        n--;
-    }
-    return (i);
+	i = 1;
+	if (nbr < 0)
+		n--;
+	while (n > 1)
+	{
+		i = i * 10;
+		n--;
+	}
+	return (i);
 }
 
-char *ft_itoa(int n)
+char	*convert(int i, int len, char *str, long nbr)
 {
-    int len;
-    int i;
-    int j;
-    long    k;
-    long    nbr;
+	long	pow;
 
-    len = get_len(n);
-    nbr = n;
-    i = 0;
-    k = get_power(len, n);
-    char *str = malloc (len + 1);
-    if (str == NULL)
-        return (NULL);
-    if (nbr < 0)
-    {
-        nbr = 0 - nbr;
-        str[i] = '-';
-        i++;
-    }
-    while (i < len)
-    {
-        j = nbr / k;
-        str[i] = j + '0';
-        nbr = nbr - (j * k);
-        i++;
-        k = k / 10;
-    }
-    str[i] = '\0';
-    return (str);
+	pow = get_power(len, nbr);
+	while (i < len)
+	{
+		str[i] = nbr / pow + '0';
+		nbr = nbr - ((nbr / pow) * k);
+		i++;
+		pow = pow / 10;
+	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	int		len;
+	int		i;
+	long	pow;
+	long	nbr;
+	char	*str;
+
+	nbr = n;
+	len = get_len(nbr);
+	i = 0;
+	str = malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	if (nbr < 0)
+	{
+		nbr = 0 - nbr;
+		str[i] = '-';
+		i++;
+	}
+	*str = convert(i, len, str, nbr);
+	str[i] = '\0';
+	return (str);
 }
 
 // #include <stdio.h>

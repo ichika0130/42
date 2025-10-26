@@ -1,0 +1,33 @@
+char	*ft_itoa(int n)
+{
+	int		len;
+	int		i;
+	int		j;
+	long	pow;
+	long	nbr;
+	char	*str;
+
+	len = get_len(n);
+	nbr = n;
+	i = 0;
+	pow = get_power(len, n);
+	str = malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	if (nbr < 0)
+	{
+		nbr = 0 - nbr;
+		str[i] = '-';
+		i++;
+	}
+	while (i < len)
+	{
+		j = nbr / pow;
+		str[i] = j + '0';
+		nbr = nbr - (j * k);
+		i++;
+		pow = pow / 10;
+	}
+	str[i] = '\0';
+	return (str);
+}

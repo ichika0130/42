@@ -21,13 +21,16 @@ int	ft_isprint(int a)
 }
 
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int main()
+int	main(void)
 {
-    int a = 35;
-    int b = isprint(a);
-    printf("%d",b);
+	int	a;
+	int	b;
+
+	a = 35;
+	b = isprint(a);
+	printf("%d",b);
 }
 */

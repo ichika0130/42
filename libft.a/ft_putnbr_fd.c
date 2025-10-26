@@ -12,17 +12,18 @@
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    int i;
+	int		i;
+	char	*str;
 
-    i = 0;
-    char    *str = ft_itoa(n);
-    while (str[i] != '\0')
-    {
-        write (fd, &str[i], 1);
-        i++;
-    }
+	i = 0;
+	str = ft_itoa(n);
+	while (str[i] != '\0')
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
 }
 
 // int main()

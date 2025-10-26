@@ -20,12 +20,16 @@ int	ft_isdigit(char a)
 		return (0);
 }
 /*
-#include <stdio.h>
 #include <ctype.h>
-int main()
+#include <stdio.h>
+
+int	main(void)
 {
-    char a = '1';
-    int b = isdigit(a);
-    printf ("%d", b);
+	char	a;
+	int		b;
+
+	a = '1';
+	b = isdigit(a);
+	printf ("%d", b);
 }
 */

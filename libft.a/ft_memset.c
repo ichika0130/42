@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-void *ft_memset (void *s, int c, size_t n) 
-//fills the first n bytes of the memory area
-//pointed to by s with the constant byte c
+void	*ft_memset(void *s, int c, size_t n)
 {
-    void *ptr = s;
-    while (n != 0)
-    {
-        *(char *)s = c;
-        n--;
-        s = (char *)s + 1;
-    }
-    return (ptr);
+	void	*ptr;
+
+	ptr = s;
+	while (n != 0)
+	{
+		*(char *)s = c;
+		n--;
+		s = (char *)s + 1;
+	}
+	return (ptr);
 }
 // #include <string.h>
 // #include <ctype.h>

@@ -12,21 +12,21 @@
 
 #include "libft.h"
 
-char    *ft_strdup(const char*s)
+char	*ft_strdup(const char *s)
 {
-    char    *str;
-    int len;
-    int n;
+	char	*str;
+	int		len;
+	int		n;
 
-    n = 0;
-    len = ft_strlen(s);
-    str = malloc (len + 1);
-    if (str == NULL)
-        return (NULL);
-    while (n < (len + 1))
-    {
-        str[n] = s[n];
-        n++;
-    }
-    return (str);
+	n = 0;
+	len = ft_strlen(s);
+	str = malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (n < (len + 1))
+	{
+		str[n] = s[n];
+		n++;
+	}
+	return (str);
 }

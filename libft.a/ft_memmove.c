@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (dest < src)
@@ -57,5 +57,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 //     printf("Original string :%s\n ", str);
 //     ft_memmove(first + 8, first, 10);
 //     printf("memmove overlap : %s\n ", str);
-//     return 0;
+//     return (0);
 // }

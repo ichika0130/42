@@ -12,24 +12,27 @@
 
 #include "libft.h"
 
-size_t  ft_strlen(const char* str)
+size_t	ft_strlen(const char *str)
 {
-    size_t count;
+	size_t	count;
 
-    count = 0;
-    while (*str != '\0')
-    {
-        count++;
-        str++;
-    }
-    return (count);
+	count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return (count);
 }
 /*
-int main()
+int	main(void)
 {
-    char* test = " 2 4 ";
-    int a = ft_strlen(test);
-    char b = a + 48;
-    write (1, &b, 1);
+	int		a;
+	char	b;
+
+	char* test = " 2 4 ";
+	a = ft_strlen(test);
+	b = a + 48;
+	write (1, &b, 1);
 }
 */

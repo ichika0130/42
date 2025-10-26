@@ -20,14 +20,19 @@ int	ft_isalpha(char a)
 		return (0);
 }
 /*
-#include <stdio.h>
 #include <ctype.h>
-int main()
+#include <stdio.h>
+
+int	main(void)
 {
-    char c = 'J';
-    int d = ft_isalpha(c);
-    int e = isalpha(c);
-    printf ("1st one is %d\n", d);
-    printf ("right one is %d", e);
+	char	c;
+	int		d;
+	int		e;
+
+	c = 'J';
+	d = ft_isalpha(c);
+	e = isalpha(c);
+	printf ("1st one is %d\n", d);
+	printf ("right one is %d", e);
 }
 */
