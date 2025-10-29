@@ -19,22 +19,17 @@ int	ft_sign_check(const char *str)
 
 	j = 0;
 	m_sign = 1;
-	if (str[1] <= '0' || str[1] >= '9')
-		return (0);
-	while (str[j] < '0' || str[j] > '9')
+	while (str[j] == ' ' || str[j] == '\t' || str[j] == '\n' || str[j] == '\v'
+		|| str[j] == '\f' || str[j] == '\r')
+		j++;
+	if (str[j] == '-' || str[j] == '+')
 	{
 		if (str[j] == '-')
-		{
-			m_sign = -m_sign;
-			j++;
-		}
-		else if (str[j] == '+' || str[j] == ' ' || str[j] == '\t'
-			|| str[j] == '\n' || str[j] == '\v' || str[j] == '\f'
-			|| str[j] == '\r')
-			j++;
-		else if (str[j] < '0' || str[j] > '9')
-			return (0);
+			m_sign = -1;
+		j++;
 	}
+	if (!(str[j] >= '0' && str[j] <= '9'))
+		return (0);
 	return (m_sign);
 }
 
@@ -43,15 +38,18 @@ int	ft_atoi(const char *str)
 	int	j;
 	int	nbr;
 	int	m_sign;
-	int	len;
 
-	len = ft_strlen(str);
-	nbr = 0;
-	j = 0;
-	if (len >= 2 && (str[1] <= '0' || str[1] >= '9'))
+	if (!str)
 		return (0);
-	m_sign = ft_sign_check(str);
-	while (str[j] < '0' || str[j] > '9')
+	j = 0;
+	nbr = 0;
+	while (str[j] == ' ' || str[j] == '\t' || str[j] == '\n' || str[j] == '\v'
+		|| str[j] == '\f' || str[j] == '\r')
+		j++;
+	m_sign = ft_sign_check(str + j);
+	if (m_sign == 0)
+		return (0);
+	if (str[j] == '+' || str[j] == '-')
 		j++;
 	while (str[j] >= '0' && str[j] <= '9')
 	{

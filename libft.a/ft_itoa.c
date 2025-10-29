@@ -14,12 +14,12 @@
 
 int	get_len(long n)
 {
-	int		len;
+	int	len;
 
 	len = 1;
 	if (n < 0)
 	{
-		n = 0 - n;
+		n = -n;
 		len++;
 	}
 	while (n > 9)
@@ -30,7 +30,7 @@ int	get_len(long n)
 	return (len);
 }
 
-long	get_power(int n, int nbr)
+long	get_power(int n, long nbr)
 {
 	long	i;
 
@@ -45,19 +45,27 @@ long	get_power(int n, int nbr)
 	return (i);
 }
 
-char	*convert(int i, int len, char *str, long nbr)
+void	convert(int i, int len, char *str, long nbr)
 {
 	long	pow;
+	int		digits;
 
-	pow = get_power(len, nbr);
+	digits = len - i;
+	pow = 1;
+	while (digits > 1)
+	{
+		pow = pow * 10;
+		digits--;
+	}
 	while (i < len)
 	{
-		str[i] = nbr / pow + '0';
-		nbr = nbr - ((nbr / pow) * pow);
+		str[i] = (char)(nbr / pow + '0');
+		nbr = nbr % pow;
 		i++;
-		pow = pow / 10;
+		if (pow > 0)
+			pow /= 10;
 	}
-	return (str);
+	str[i] = '\0';
 }
 
 char	*ft_itoa(int n)
@@ -70,17 +78,16 @@ char	*ft_itoa(int n)
 	nbr = n;
 	len = get_len(nbr);
 	i = 0;
-	str = malloc(len + 1);
-	if (str == NULL)
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
 	if (nbr < 0)
 	{
-		nbr = 0 - nbr;
+		nbr = -nbr;
 		str[i] = '-';
 		i++;
 	}
-	str = convert(i, len, str, nbr);
-	str[i] = '\0';
+	convert(i, len, str, nbr);
 	return (str);
 }
 

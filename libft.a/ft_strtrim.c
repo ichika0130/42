@@ -57,26 +57,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 	size_t	len;
-	size_t	i;
 	char	*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = getstart(s1, set);
 	end = getend(s1, set);
+	if (s1[start] == '\0' || end < start)
+		return (ft_strdup(""));
 	len = end - start + 1;
-	i = 0;
-	if (*s1 == '\0')
-		return ('\0');
-	str = malloc(len + 1);
+	str = malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	while (i < len)
-	{
-		str[i] = s1[start];
-		i++;
-		start++;
-		if (i == len)
-			str[i] = '\0';
-	}
+	ft_memcpy(str, s1 + start, len);
+	str[len] = '\0';
 	return (str);
 }
 

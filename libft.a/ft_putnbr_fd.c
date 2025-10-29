@@ -12,17 +12,42 @@
 
 #include "libft.h"
 
+long	get_power(int n)
+{
+	long	power;
+
+	power = 1;
+	if (n < 0)
+		n = 0 - n;
+	while (n >= 10)
+	{
+		power = power * 10;
+		n = n / 10;
+	}
+	return (power);
+}
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	char	*str;
+	char	c;
+	long	power;
 
-	i = 0;
-	str = ft_itoa(n);
-	while (str[i] != '\0')
+	if (n == -2147483648)
 	{
-		write(fd, &str[i], 1);
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	power = get_power(n);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = 0 - n;
+	}
+	while (n >= 0)
+	{
+		c = (n / power) + '0';
+		write(fd, &c, 1);
+		n = n % power;
+		power = power / 10;
 	}
 }
 
