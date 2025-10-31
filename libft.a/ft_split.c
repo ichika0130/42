@@ -24,7 +24,7 @@ size_t	count_words(const char *s, char c)
 	{
 		if (s[i] == c)
 			i++;
-		else if (s[i] != c)
+		else
 		{
 			while (s[i] != c && s[i] != '\0')
 				i++;
@@ -34,16 +34,31 @@ size_t	count_words(const char *s, char c)
 	return (count);
 }
 
+char	*malloc_word(const char *s, size_t start, size_t len)
+{
+	char	*word;
+	size_t	i;
+
+	word = malloc((len + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		word[i] = s[start + i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
 char	**get_words(const char *s, char c, size_t count, char **str)
 {
-	size_t	start;
 	size_t	i;
-	size_t	j;
+	size_t	start;
 	size_t	len;
 
 	i = 0;
-	j = 0;
-	len = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
@@ -52,49 +67,32 @@ char	**get_words(const char *s, char c, size_t count, char **str)
 			break ;
 		start = i;
 		while (s[i] != c && s[i] != '\0')
-		{
 			i++;
-			len++;
-		}
-		str[count] = malloc((len + 1) * sizeof(char));
-		if (str[count] == NULL)
+		len = i - start;
+		str[count] = malloc_word(s, start, len);
+		if (!str[count])
 		{
-			j = 0;
-			while (j < count)
-			{
-				free(str[j]);
-				j++;
-			}
+			while (count > 0)
+				free(str[--count]);
 			return (NULL);
 		}
-		while (j < len)
-		{
-			str[count][j] = s[j + start];
-			j++;
-		}
-		str[count][j] = '\0';
 		count++;
-		len = 0;
-		j = 0;
 	}
 	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t count;
+	size_t	count;
+	char	**str;
 
 	count = count_words(s, c);
-	if (count == 0)
-	{
-		char **str = malloc(1 * sizeof(char *));
-		str[0] = NULL;
-		return (str);
-	}
-	char **str = malloc((count + 1) * sizeof(char *));
-	if (str == NULL)
+	str = malloc((count + 1) * sizeof(char *));
+	if (!str)
 		return (NULL);
 	str = get_words(s, c, 0, str);
+	if (!str)
+		return (NULL);
 	str[count] = NULL;
 	return (str);
 }

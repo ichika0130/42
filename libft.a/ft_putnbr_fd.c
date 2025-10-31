@@ -18,14 +18,15 @@ long	get_power(int n)
 
 	power = 1;
 	if (n < 0)
-		n = 0 - n;
+		n = -n;
 	while (n >= 10)
 	{
-		power = power * 10;
-		n = n / 10;
+		power *= 10;
+		n /= 10;
 	}
 	return (power);
 }
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
@@ -40,14 +41,14 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		write(fd, "-", 1);
-		n = 0 - n;
+		n = -n;
 	}
-	while (n >= 0)
+	while (power > 0)
 	{
 		c = (n / power) + '0';
 		write(fd, &c, 1);
-		n = n % power;
-		power = power / 10;
+		n %= power;
+		power /= 10;
 	}
 }
 
